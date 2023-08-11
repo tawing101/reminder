@@ -6,7 +6,7 @@ export enum Raid {
 	MrPartyAndGuildRaid,
 }
 
-export const Raids = [Raid.MrPartyAndGuildRaid, Raid.MrPartyAndGuildRaid, Raid.MrPartyAndGuildRaid];
+export const raids = [Raid.MrPartyAndGuildRaid, Raid.MrPartyAndGuildRaid, Raid.MrPartyAndGuildRaid];
 
 export const getRaidTime = (value: Raid): ScheduleTime => {
 	switch (value) {
