@@ -57,13 +57,13 @@ export const getDailyDuration = (value: Daily): Duration => {
 			return { minutes: 35 };
 
 		case Daily.MRPartyAndGHRaidToday:
-		case Daily.MRPartyAndGHRaid:
 			return { minutes: 5 };
 
 		case Daily.DuoBattleOfYggdrasil:
 			return { hours: 14 };
 
 		case Daily.ExtremeChallenge:
+		case Daily.MRPartyAndGHRaid:
 			return { hours: 1, minutes: 30 };
 
 		case Daily.GuildExpedition:
