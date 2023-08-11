@@ -2,7 +2,7 @@ import { Daily, getDailyDuration, getDailyTime } from './daily';
 import { Event, getEventDuration, getEventTime } from './event';
 import { Reset, getResetTime } from './reset';
 import { Trade, getTradeTime } from './trade';
-import { Raid, getRaidTime } from './Raid';
+import { Raid, getRaidTime } from './raids';
 
 export const ROO_TIME_ZONE = '+07:00';
 
