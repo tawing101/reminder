@@ -12,8 +12,8 @@ export enum Daily {
 	ThemedParty,
 	TimeSpaceAbnormality,
 	WeekendBanquet,
-	MRParty,
-	GuildRaid,
+	MRPartyAndGuildRaid,
+	
 }
 
 export const getDailies = (date: Date): Daily[] => {
@@ -42,7 +42,7 @@ export const getDailies = (date: Date): Daily[] => {
 
 		case 5:
 			// friday
-			return [Daily.GuildQuiz, Daily.MRParty, Daily.GuildRaid];
+			return [Daily.GuildQuiz, Daily.MRPartyAndGuildRaid];
 
 		case 6:
 			// saturday
@@ -55,11 +55,10 @@ export const getDailyDuration = (value: Daily): Duration => {
 		case Daily.Arena:
 			return { minutes: 35 };
 
-		case Daily.GuildRaid:
+		case Daily.MRPartyAndGuildRaid:
 			return { minutes: 5 };
 
 		case Daily.DuoBattleOfYggdrasil:
-		case Daily.MRParty:
 			return { hours: 14 };
 
 		case Daily.ExtremeChallenge:
@@ -95,10 +94,7 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 		case Daily.DuoBattleOfYggdrasil:
 			return { hours: 10, minutes: 0 };
 
-		case Daily.MRParty:
-			return { hours: 12, minutes: 43 };
-
-		case Daily.GuildRaid:
+		case Daily.MRPartyAndGuildRaid:
 			return { hours: 13, minutes: 10 };
 			
 		case Daily.GuildFeast:
