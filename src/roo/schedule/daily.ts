@@ -52,6 +52,10 @@ export const getDailies = (date: Date): Daily[] => {
 
 export const getDailyDuration = (value: Daily): Duration => {
 	switch (value) {
+		case Daily.GuildRaid:
+		case Daily.MRParty
+			return { minutes: 0 };
+			
 		case Daily.Arena:
 			return { minutes: 35 };
 
@@ -59,7 +63,6 @@ export const getDailyDuration = (value: Daily): Duration => {
 			return { hours: 14 };
 
 		case Daily.ExtremeChallenge:
-		case Daily.GuildRaid:
 			return { hours: 1, minutes: 30 };
 
 		case Daily.GuildExpedition:
@@ -77,7 +80,6 @@ export const getDailyDuration = (value: Daily): Duration => {
 			return { minutes: 25 };
 
 		case Daily.ThemedParty:
-		case Daily.MRParty:
 			return { minutes: 30 };
 
 		case Daily.TimeSpaceAbnormality:
@@ -94,10 +96,10 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 			return { hours: 10, minutes: 0 };
 
 		case Daily.MRParty:
-			return { hours: 10, minutes: 15 };
+			return { hours: 10, minutes: 30 };
 
 		case Daily.GuildRaid:
-			return { hours: 10, minutes: 17 };
+			return { hours: 10, minutes: 31 };
 			
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
