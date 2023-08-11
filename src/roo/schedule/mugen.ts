@@ -1,23 +1,23 @@
 import { ScheduleTime } from '.';
 
-export enum Trade {
-	FirstStoreRefresh,
-	SecondStoreRefresh,
-	ThirdStoreRefresh,
+export enum Raid {
+	MrPartyAndGuildRaid,
+	MrPartyAndGuildRaid,
+	MrPartyAndGuildRaid,
 }
 
-export const trades = [Trade.FirstStoreRefresh, Trade.SecondStoreRefresh, Trade.ThirdStoreRefresh];
+export const Raids = [Raid.MrPartyAndGuildRaid, Raid.MrPartyAndGuildRaid, Raid.MrPartyAndGuildRaid];
 
-export const getTradeTime = (value: Trade): ScheduleTime => {
+export const getRaidTime = (value: Raid): ScheduleTime => {
 	switch (value) {
-		case Trade.FirstStoreRefresh:
-			return { hours: 12, minutes: 0 };
+		case Raid.MrPartyAndGuildRaid:
+			return { hours: 9, minutes: 0 };
 
-		case Trade.SecondStoreRefresh:
-			return { hours: 16, minutes: 0 };
+		case Raid.MrPartyAndGuildRaid:
+			return { hours: 11, minutes: 0 };
 
-		// case Trade.AuctionStart:
-		case Trade.ThirdStoreRefresh:
-			return { hours: 20, minutes: 0 };
+		// case Raid.AuctionStart:
+		case Raid.MrPartyAndGuildRaid:
+			return { hours: 20, minutes: 30 };
 	}
 };
