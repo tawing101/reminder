@@ -53,7 +53,7 @@ export const getDailies = (date: Date): Daily[] => {
 export const getDailyDuration = (value: Daily): Duration => {
 	switch (value) {
 		case Daily.GuildRaid:
-		case Daily.MRParty
+		case Daily.MRParty:
 			return { minutes: 0 };
 			
 		case Daily.Arena:
