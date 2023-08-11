@@ -8,6 +8,7 @@ import { getDailies } from './roo/schedule/daily';
 import { getEvents } from './roo/schedule/event';
 import { getResets } from './roo/schedule/reset';
 import { trades } from './roo/schedule/trade';
+import { raids } from './roo/schedule/raid';
 
 const scheduled = ((_controller, env, ctx) => {
 	const date = utcToZonedTime(Date.now(), ROO_TIME_ZONE);
@@ -21,6 +22,7 @@ const scheduled = ((_controller, env, ctx) => {
 		...events.map((value): Schedule => ({ kind: ScheduleKind.Event, value })),
 		...resets.map((value): Schedule => ({ kind: ScheduleKind.Reset, value })),
 		...trades.map((value): Schedule => ({ kind: ScheduleKind.Trade, value })),
+		...raids.map((value): Schedule => ({ kind: ScheduleKind.Raid, value })),
 	] satisfies Schedule[];
 
 	const embeds = [] as KindValue<ScheduleKind, DiscordWebhookEmbed>[];
