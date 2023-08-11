@@ -12,6 +12,8 @@ export enum Daily {
 	ThemedParty,
 	TimeSpaceAbnormality,
 	WeekendBanquet,
+	MRParty,
+	GuildRaid,
 }
 
 export const getDailies = (date: Date): Daily[] => {
