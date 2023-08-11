@@ -2,6 +2,7 @@ import { Daily, getDailyDuration, getDailyTime } from './daily';
 import { Event, getEventDuration, getEventTime } from './event';
 import { Reset, getResetTime } from './reset';
 import { Trade, getTradeTime } from './trade';
+import { Raid, getRaidTime } from './Raid';
 
 export const ROO_TIME_ZONE = '+07:00';
 
@@ -15,13 +16,15 @@ export enum ScheduleKind {
 	Event,
 	Reset,
 	Trade,
+	Raid,
 }
 
 export type Schedule =
 	| KindValue<ScheduleKind.Daily, Daily>
 	| KindValue<ScheduleKind.Event, Event>
 	| KindValue<ScheduleKind.Reset, Reset>
-	| KindValue<ScheduleKind.Trade, Trade>;
+	| KindValue<ScheduleKind.Trade, Trade>
+	| KindValue<ScheduleKind.Trade, Raid>;
 
 export const getScheduleDuration = ({ kind, value }: Schedule): Duration | undefined => {
 	switch (kind) {
@@ -46,6 +49,9 @@ export const getScheduleTime = ({ kind, value }: Schedule): MaybeArray<ScheduleT
 
 		case ScheduleKind.Trade:
 			return getTradeTime(value);
+		
+		case ScheduleKind.Raid:
+			return getTradeTime(value);
 	}
 };
 
@@ -61,6 +67,9 @@ export const getScheduleValue = ({ kind, value }: Schedule): string => {
 			return Reset[value];
 
 		case ScheduleKind.Trade:
+			return Trade[value];
+
+		case ScheduleKind.Raid:
 			return Trade[value];
 	}
 };
