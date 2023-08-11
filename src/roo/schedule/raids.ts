@@ -14,7 +14,7 @@ export const getRaidTime = (value: Raid): ScheduleTime => {
 			return { hours: 9, minutes: 0 };
 
 		case Raid.MrPartyAndGuildRaid:
-			return { hours: 11, minutes: 5 };
+			return { hours: 12, minutes: 7 };
 
 		// case Raid.AuctionStart:
 		case Raid.MrPartyAndGuildRaid:
