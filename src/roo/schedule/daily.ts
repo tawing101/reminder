@@ -56,7 +56,7 @@ export const getDailyDuration = (value: Daily): Duration => {
 			return { minutes: 35 };
 
 		case Daily.GuildRaid:
-			return { minutes: 0 };
+			return { minutes: 1 };
 
 		case Daily.DuoBattleOfYggdrasil:
 		case Daily.MRParty:
@@ -99,7 +99,7 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 			return { hours: 12, minutes: 43 };
 
 		case Daily.GuildRaid:
-			return { hours: 13, minutes: 02 };
+			return { hours: 13, minutes: 04 };
 			
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
