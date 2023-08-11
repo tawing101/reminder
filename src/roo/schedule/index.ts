@@ -24,7 +24,7 @@ export type Schedule =
 	| KindValue<ScheduleKind.Event, Event>
 	| KindValue<ScheduleKind.Reset, Reset>
 	| KindValue<ScheduleKind.Trade, Trade>
-	| KindValue<ScheduleKind.Trade, Raid>;
+	| KindValue<ScheduleKind.Raid, Raid>;
 
 export const getScheduleDuration = ({ kind, value }: Schedule): Duration | undefined => {
 	switch (kind) {
@@ -51,7 +51,7 @@ export const getScheduleTime = ({ kind, value }: Schedule): MaybeArray<ScheduleT
 			return getTradeTime(value);
 		
 		case ScheduleKind.Raid:
-			return getTradeTime(value);
+			return getRaidTime(value);
 	}
 };
 
@@ -70,6 +70,6 @@ export const getScheduleValue = ({ kind, value }: Schedule): string => {
 			return Trade[value];
 
 		case ScheduleKind.Raid:
-			return Trade[value];
+			return Raid[value];
 	}
 };
