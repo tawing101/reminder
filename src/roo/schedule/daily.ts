@@ -94,10 +94,10 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 			return { hours: 10, minutes: 0 };
 
 		case Daily.MRParty:
-			return { hours: 13, minutes: 33 };
+			return { hours: 12, minutes: 36 };
 
 		case Daily.GuildRaid:
-			return { hours: 13, minutes: 34 };
+			return { hours: 12, minutes: 37 };
 			
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
