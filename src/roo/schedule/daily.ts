@@ -1,20 +1,13 @@
 import { ScheduleTime } from '.';
 
 export enum Daily {
-	Arena,
-	DuoBattleOfYggdrasil,
+	DimensionDrill,
 	ExtremeChallenge,
 	GuildExpedition,
 	GuildFeast,
 	GuildQuiz,
-	RuneFashion,
-	TheGuildLeague,
-	ThemedParty,
 	TimeSpaceAbnormality,
-	WeekendBanquet,
-	MRPartyAndGHRaidToday,
-	MRPartyAndGHRaid,
-	
+	WarOfEmperium
 }
 
 export const getDailies = (date: Date): Daily[] => {
@@ -23,103 +16,70 @@ export const getDailies = (date: Date): Daily[] => {
 	switch (day) {
 		case 0:
 			// sunday
-			return [Daily.DuoBattleOfYggdrasil, Daily.ThemedParty, Daily.GuildExpedition];
+			return [Daily.GuildFeast, Daily.GuildExpedition, Daily.WarOfEmperium];
 
 		case 1:
 			// monday
-			return [Daily.GuildQuiz, Daily.ExtremeChallenge];
+			return [Daily.GuildFeast, Daily.GuildQuiz, Daily.DimensionDrill];
 
 		case 2:
 			// tuesday
-			return [Daily.GuildFeast, Daily.TimeSpaceAbnormality, Daily.TheGuildLeague];
+			return [Daily.GuildFeast, Daily.ExtremeChallenge];
 
 		case 3:
 			// wednesday
-			return [Daily.RuneFashion, Daily.GuildQuiz, Daily.Arena];
+			return [Daily.GuildFeast, Daily.GuildQuiz, Daily.DimensionDrill];
 
 		case 4:
 			// thursday
-			return [Daily.GuildFeast, Daily.GuildExpedition, Daily.TheGuildLeague];
+			return [Daily.GuildFeast, Daily.GuildExpedition, Daily.ExtremeChallenge];
 
 		case 5:
 			// friday
-			return [Daily.GuildQuiz, Daily.MRPartyAndGHRaidToday, Daily.MRPartyAndGHRaid];
+			return [Daily.GuildFeast, Daily.GuildQuiz];
 
 		case 6:
 			// saturday
-			return [Daily.DuoBattleOfYggdrasil, Daily.WeekendBanquet, Daily.TimeSpaceAbnormality, Daily.TheGuildLeague];
+			return [Daily.GuildFeast, Daily.TimeSpaceAbnormality];
 	}
 };
 
 export const getDailyDuration = (value: Daily): Duration => {
 	switch (value) {
-		case Daily.Arena:
-			return { minutes: 35 };
-
-		case Daily.MRPartyAndGHRaidToday:
-			return { minutes: 5 };
-
-		case Daily.DuoBattleOfYggdrasil:
-			return { hours: 14 };
+		case Daily.DimensionDrill:
+			return { minutes: 30 };
 
 		case Daily.ExtremeChallenge:
-		case Daily.MRPartyAndGHRaid:
 			return { hours: 1, minutes: 30 };
 
 		case Daily.GuildExpedition:
 		case Daily.GuildFeast:
-		case Daily.WeekendBanquet:
 			return { minutes: 20 };
 
 		case Daily.GuildQuiz:
 			return { minutes: 15 };
 
-		case Daily.RuneFashion:
-			return { hours: 19 };
-
-		case Daily.TheGuildLeague:
-			return { minutes: 25 };
-
-		case Daily.ThemedParty:
-			return { minutes: 30 };
-
 		case Daily.TimeSpaceAbnormality:
 			return { minutes: 13 };
+
+		case Daily.WarOfEmperium:
+			return { hours: 1 };
 	}
 };
 
 export const getDailyTime = (value: Daily): ScheduleTime => {
 	switch (value) {
-		case Daily.RuneFashion:
-			return { hours: 5, minutes: 0 };
-
-		case Daily.DuoBattleOfYggdrasil:
-			return { hours: 10, minutes: 0 };
-
-		case Daily.MRPartyAndGHRaidToday:
-			return { hours: 10, minutes: 10 };
-
-		case Daily.MRPartyAndGHRaidToday:
-			return { hours: 13, minutes: 30 };
-			
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
-		case Daily.ThemedParty:
-		case Daily.WeekendBanquet:
 			return { hours: 20, minutes: 0 };
 
-		case Daily.Arena:
-			return { hours: 20, minutes: 25 };
-		
-		case Daily.MRPartyAndGHRaid:
-			return { hours: 20, minutes: 25 };
-			
+		case Daily.DimensionDrill:
 		case Daily.ExtremeChallenge:
 		case Daily.GuildExpedition:
 		case Daily.TimeSpaceAbnormality:
 			return { hours: 20, minutes: 30 };
 
-		case Daily.TheGuildLeague:
-			return { hours: 20, minutes: 55 };
+		case Daily.WarOfEmperium:
+			return { hours: 21, minutes: 0 };
 	}
 };
