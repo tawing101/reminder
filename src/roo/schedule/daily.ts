@@ -71,9 +71,8 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 	switch (value) {
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
-			// 🔴 TEST ALERT: Set to 10:00 AM Server Time
-			// If your in-game clock is already past 9:55 AM, change the minutes to be 5 minutes into the future!
-			return { hours: 10, minutes: 0 };
+			// 🔴 TEST ALERT: Set to 10:10 AM Server Time
+			return { hours: 10, minutes: 10 };
 
 		case Daily.DimensionDrill:
 		case Daily.ExtremeChallenge:
