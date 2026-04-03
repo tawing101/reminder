@@ -71,12 +71,14 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 	switch (value) {
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
-			return { hours: 20, minutes: 0 };
+        case Daily.TimeSpaceAbnormality:
+			// 🔴 CHANGE THIS TO 5 MINS AHEAD OF CURRENT SERVER TIME 
+			// (Use 24-hour format, e.g., for 12:50 AM use hours: 0, minutes: 50)
+			return { hours: 0, minutes: 50 };
 
 		case Daily.DimensionDrill:
 		case Daily.ExtremeChallenge:
 		case Daily.GuildExpedition:
-		case Daily.TimeSpaceAbnormality:
 			return { hours: 20, minutes: 30 };
 
 		case Daily.WarOfEmperium:
