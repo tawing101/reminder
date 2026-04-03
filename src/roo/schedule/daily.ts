@@ -71,8 +71,7 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 	switch (value) {
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
-			// 🔴 TEST ALERT: Set to 10:10 AM Server Time
-			return { hours: 10, minutes: 10 };
+			return { hours: 20, minutes: 0 };
 
 		case Daily.DimensionDrill:
 		case Daily.ExtremeChallenge:
