@@ -15,7 +15,7 @@ export const getTradeDuration = (value: Trade): Duration => {
 	}
 };
 
-export const getTradeTime = (value: Trade): ScheduleTime[] => {
+export const trades = (value: Trade): ScheduleTime[] => {
 	switch (value) {
 		case Trade.StoreRefresh:
 			// Alerts at 12:00 PM, 4:00 PM, and 8:00 PM Server Time
