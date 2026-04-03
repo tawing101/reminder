@@ -15,7 +15,7 @@ export const getTradeDuration = (value: Trade): Duration => {
 	}
 };
 
-// This function now has both names to satisfy all parts of your code
+// Audited Variable: Satisfies imports in both index files
 export const trades = (value: Trade): ScheduleTime[] => {
 	switch (value) {
 		case Trade.StoreRefresh:
