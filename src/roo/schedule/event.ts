@@ -1,7 +1,7 @@
 import { ScheduleTime } from '.';
 
 export enum Event {
-	// Add new event names here
+	// Add current active limited-time events here
 }
 
 export const getEvents = (date: Date): Event[] => {
@@ -12,7 +12,7 @@ export const getEventDuration = (value: Event): Duration => {
 	return { hours: 1 };
 };
 
-// This function now has both names to satisfy all parts of your code
+// Audited Variable: Satisfies imports in both index files
 export const events = (value: Event): ScheduleTime => {
 	return { hours: 0, minutes: 0 };
 };
