@@ -71,14 +71,14 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 	switch (value) {
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
-        case Daily.TimeSpaceAbnormality:
-			// 🔴 CHANGE THIS TO 5 MINS AHEAD OF CURRENT SERVER TIME 
-			// (Use 24-hour format, e.g., for 12:50 AM use hours: 0, minutes: 50)
-			return { hours: 0, minutes: 50 };
+			// 🔴 TEST ALERT: Set to 10:00 AM Server Time
+			// If your in-game clock is already past 9:55 AM, change the minutes to be 5 minutes into the future!
+			return { hours: 10, minutes: 0 };
 
 		case Daily.DimensionDrill:
 		case Daily.ExtremeChallenge:
 		case Daily.GuildExpedition:
+		case Daily.TimeSpaceAbnormality:
 			return { hours: 20, minutes: 30 };
 
 		case Daily.WarOfEmperium:
