@@ -15,10 +15,10 @@ export const getTradeDuration = (value: Trade): Duration => {
 	}
 };
 
+// This function now has both names to satisfy all parts of your code
 export const trades = (value: Trade): ScheduleTime[] => {
 	switch (value) {
 		case Trade.StoreRefresh:
-			// Alerts at 12:00 PM, 4:00 PM, and 8:00 PM Server Time
 			return [
 				{ hours: 12, minutes: 0 },
 				{ hours: 16, minutes: 0 },
@@ -26,3 +26,5 @@ export const trades = (value: Trade): ScheduleTime[] => {
 			];
 	}
 };
+
+export const getTradeTime = trades;
