@@ -4,8 +4,11 @@ export enum Trade {
 	StoreRefresh
 }
 
+// Audited Variable: Exported as an ARRAY for src/index.ts to use .map()
+export const trades: Trade[] = [Trade.StoreRefresh];
+
 export const getTrades = (date: Date): Trade[] => {
-	return [Trade.StoreRefresh];
+	return trades;
 };
 
 export const getTradeDuration = (value: Trade): Duration => {
@@ -15,13 +18,13 @@ export const getTradeDuration = (value: Trade): Duration => {
 	}
 };
 
-// Audited 4-hour cycle for RO Classic (5AM, 9AM, 1PM, 5PM, 9PM, 1AM)
-export const trades = (value: Trade): ScheduleTime[] => {
+// Audited Variable: Exported as a FUNCTION for src/roo/schedule/index.ts
+export const getTradeTime = (value: Trade): ScheduleTime[] => {
 	switch (value) {
 		case Trade.StoreRefresh:
 			return [
 				{ hours: 1, minutes: 0 },
-				{ hours: 5, minutes: 0 },  // Main Reset
+				{ hours: 5, minutes: 0 },
 				{ hours: 9, minutes: 0 },
 				{ hours: 13, minutes: 0 },
 				{ hours: 17, minutes: 0 },
@@ -29,5 +32,3 @@ export const trades = (value: Trade): ScheduleTime[] => {
 			];
 	}
 };
-
-export const getTradeTime = trades;
