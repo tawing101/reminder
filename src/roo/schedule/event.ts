@@ -12,9 +12,6 @@ export const getEventDuration = (value: Event): Duration => {
 	return { hours: 1 };
 };
 
-// Audited Variable: Satisfies imports in both index files
-export const events = (value: Event): ScheduleTime => {
+export const getEventTime = (value: Event): ScheduleTime => {
 	return { hours: 0, minutes: 0 };
 };
-
-export const getEventTime = events;
