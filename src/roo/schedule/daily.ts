@@ -6,7 +6,6 @@ export enum Daily {
 	GuildExpedition,
 	GuildFeast,
 	GuildQuiz,
-	TimeSpaceAbnormality,
 	WarOfEmperium,
 	WoEWarning15Min,
 	MorningGuildChecklist,
@@ -21,48 +20,42 @@ export const getDailies = (date: Date): Daily[] => {
 	const baseDailies = [Daily.MorningGuildChecklist];
 
 	switch (day) {
-		case 0: // Sunday - WoE Focus (No Dungeons)
+		case 0: // Sunday
 			return [...baseDailies, Daily.GuildFeast, Daily.GuildExpedition, Daily.WoEWarning15Min, Daily.WarOfEmperium];
-		case 1: // Monday - Team Dungeon & Nightmare Temple (Day 1/3)
+		case 1: // Monday
 			return [...baseDailies, Daily.GuildFeast, Daily.GuildQuiz, Daily.DimensionDrill, Daily.TeamDungeon, Daily.NightmareTemple];
-		case 2: // Tuesday - Juperos Ruins (Day 1/2)
+		case 2: // Tuesday
 			return [...baseDailies, Daily.GuildFeast, Daily.ExtremeChallenge, Daily.JuperosRuins];
-		case 3: // Wednesday - Team Dungeon & Nightmare Temple (Day 2/3)
+		case 3: // Wednesday
 			return [...baseDailies, Daily.GuildFeast, Daily.GuildQuiz, Daily.DimensionDrill, Daily.TeamDungeon, Daily.NightmareTemple];
-		case 4: // Thursday - Rest Night (Prep for weekend)
-			return [...baseDailies, Daily.GuildFeast, Daily.GuildExpedition, Daily.ExtremeChallenge];
-		case 5: // Friday - Team Dungeon & Nightmare Temple (Day 3/3 - Capped!)
+		case 4: // Thursday - Only Feast and Extreme Challenge in ROOC
+			return [...baseDailies, Daily.GuildFeast, Daily.ExtremeChallenge];
+		case 5: // Friday
 			return [...baseDailies, Daily.GuildFeast, Daily.GuildQuiz, Daily.TeamDungeon, Daily.NightmareTemple];
-		case 6: // Saturday - Juperos Ruins (Day 2/2 - Capped!)
-			return [...baseDailies, Daily.GuildFeast, Daily.TimeSpaceAbnormality, Daily.JuperosRuins];
+		case 6: // Saturday - Replaced Time Space with Extreme Challenge
+			return [...baseDailies, Daily.GuildFeast, Daily.ExtremeChallenge, Daily.JuperosRuins];
 	}
 };
 
 export const getDailyDuration = (value: Daily): Duration => {
 	switch (value) {
 		case Daily.DimensionDrill:
+		case Daily.TeamDungeon:
 			return { minutes: 30 };
 		case Daily.ExtremeChallenge:
+		case Daily.JuperosRuins:
 			return { hours: 1, minutes: 30 };
 		case Daily.GuildExpedition:
 		case Daily.GuildFeast:
 			return { minutes: 20 };
 		case Daily.GuildQuiz:
-			return { minutes: 15 };
-		case Daily.TimeSpaceAbnormality:
-			return { minutes: 13 };
-		case Daily.WarOfEmperium:
-			return { hours: 1 };
 		case Daily.WoEWarning15Min:
 			return { minutes: 15 };
+		case Daily.WarOfEmperium:
+		case Daily.NightmareTemple:
+			return { hours: 1 };
 		case Daily.MorningGuildChecklist:
 			return { minutes: 0 };
-		case Daily.TeamDungeon:
-			return { minutes: 30 };
-		case Daily.NightmareTemple:
-			return { hours: 1 }; // Stacked 5x fast runs
-		case Daily.JuperosRuins:
-			return { hours: 1, minutes: 30 }; 
 	}
 };
 
@@ -70,21 +63,20 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 	switch (value) {
 		case Daily.GuildFeast:
 		case Daily.GuildQuiz:
-			return { hours: 20, minutes: 0 }; 
+		case Daily.GuildExpedition:
+			return { hours: 20, minutes: 0 }; // 8:00 PM for all initial events
 		case Daily.DimensionDrill:
 		case Daily.ExtremeChallenge:
-		case Daily.GuildExpedition:
-		case Daily.TimeSpaceAbnormality:
-			return { hours: 20, minutes: 30 }; 
-		case Daily.WarOfEmperium:
-			return { hours: 21, minutes: 0 }; 
+			return { hours: 20, minutes: 30 }; // 8:30 PM for combat events
 		case Daily.WoEWarning15Min:
-			return { hours: 20, minutes: 45 }; 
+			return { hours: 20, minutes: 45 }; // 8:45 PM
+		case Daily.WarOfEmperium:
+			return { hours: 21, minutes: 0 }; // 9:00 PM
 		case Daily.MorningGuildChecklist:
-			return { hours: 5, minutes: 0 }; 
+			return { hours: 5, minutes: 0 }; // 5:00 AM
 		case Daily.TeamDungeon:
 		case Daily.NightmareTemple:
 		case Daily.JuperosRuins:
-			return { hours: 21, minutes: 15 }; // Consistent 9:15 PM start for all PvE
+			return { hours: 21, minutes: 15 }; // 9:15 PM Custom Guild Runs
 	}
 };
